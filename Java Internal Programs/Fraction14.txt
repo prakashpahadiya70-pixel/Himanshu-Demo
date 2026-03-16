@@ -1,0 +1,53 @@
+class Fraction {
+    int numerator;
+    int denominator;
+
+    // Constructor
+    Fraction(int n, int d) {
+        numerator = n;
+        denominator = d;
+    }
+
+    // Method to display fraction
+    void display() {
+        System.out.println(numerator + "/" + denominator);
+    }
+
+    // Overloaded add method: adds this fraction with another fraction
+    Fraction add(Fraction f) {
+        int num = this.numerator * f.denominator + f.numerator * this.denominator;
+        int den = this.denominator * f.denominator;
+
+        // Simplify fraction
+        int gcd = gcd(num, den);
+        num /= gcd;
+        den /= gcd;
+
+        return new Fraction(num, den);
+    }
+
+    // Helper method to find GCD (for simplification)
+    int gcd(int a, int b) {
+        if (b == 0)
+            return a;
+        return gcd(b, a % b);
+    }
+}
+
+// Main class
+public class Solution {
+    public static void main(String[] args) {
+        Fraction f1 = new Fraction(1, 2);  // 1/2
+        Fraction f2 = new Fraction(3, 4);  // 3/4
+
+        System.out.print("Fraction 1: ");
+        f1.display();
+        System.out.print("Fraction 2: ");
+        f2.display();
+
+        // Add fractions
+        Fraction sum = f1.add(f2);
+        System.out.print("Sum of fractions: ");
+        sum.display();
+    }
+}
