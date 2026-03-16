@@ -1,0 +1,44 @@
+import java.util.*;
+
+public class Solution {
+
+    // function to check prime number
+    public static boolean isPrime(int n) {
+        if (n <= 1)
+            return false;
+
+        for (int i = 2; i <= n / 2; i++) {
+            if (n % i == 0)
+                return false;
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+
+        int[] arr = {2, 4, 5, 6, 7, 8, 11, 12, 13, 15};
+
+        int[] prime = new int[10];
+        int[] nonPrime = new int[10];
+
+        int p = 0, np = 0;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (isPrime(arr[i])) {
+                prime[p++] = arr[i];
+            } else {
+                nonPrime[np++] = arr[i];
+            }
+        }
+
+        System.out.println("Prime numbers:");
+        for (int i = 0; i < p; i++) {
+            System.out.print(prime[i] + " ");
+        }
+
+        System.out.println("\nNon Prime numbers:");
+        for (int i = 0; i < np; i++) {
+            System.out.print(nonPrime[i] + " ");
+        }
+    }
+}
