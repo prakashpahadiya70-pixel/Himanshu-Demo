@@ -1,0 +1,44 @@
+class Car {
+    // Attributes
+    String model;
+    String color;
+    double price;
+
+    // Default constructor
+    Car() {
+        model = "Unknown";
+        color = "Unknown";
+        price = 0.0;
+    }
+
+    // Parameterized constructor
+    Car(String m, String c, double p) {
+        model = m;
+        color = c;
+        price = p;
+    }
+
+    // Member function to display details
+    void displayDetails() {
+        System.out.println("Car Model: " + model);
+        System.out.println("Color: " + color);
+        System.out.println("Price: " + price);
+    }
+}
+
+// Main class
+public class Solution {
+    public static void main(String[] args) {
+        // Using default constructor
+        Car car1 = new Car();
+        System.out.println("Details of car1:");
+        car1.displayDetails();
+
+        System.out.println();
+
+        // Using parameterized constructor
+        Car car2 = new Car("Toyota Corolla", "Red", 20000);
+        System.out.println("Details of car2:");
+        car2.displayDetails();
+    }
+}

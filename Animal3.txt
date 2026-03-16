@@ -1,0 +1,38 @@
+interface Animals {
+    
+    // abstract method
+    void sound();
+    
+    // default method
+    default void walk() {
+        System.out.println("Animal is walking");
+    }
+}
+
+class Cat implements Animals {
+    
+    public void sound() {
+        System.out.println("Cat says: Meow");
+    }
+}
+
+class Dog implements Animals {
+    
+    public void sound() {
+        System.out.println("Dog says: Bark");
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) {
+        
+        Cat c = new Cat();
+        Dog d = new Dog();
+        
+        c.sound();
+        c.walk();
+        
+        d.sound();
+        d.walk();
+    }
+}
